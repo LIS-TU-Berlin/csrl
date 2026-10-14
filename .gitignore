@@ -1,0 +1,44 @@
+# Python-generated files
+__pycache__/
+*.py[oc]
+build/
+dist/
+wheels/
+*.egg-info
+
+# Virtual environments
+.venv
+
+# Data files
+data/
+tensorboard/
+multirun/
+output/
+*.mp4
+*.h5
+nogit*
+
+# Temporary files
+*.tmp
+*.dat
+*~
+z.*
+rai.log
+.#*#
+.#*
+#*#
+
+# IDE files
+.*.cflags
+.*.config
+.*.creator
+.*.cxxflags
+.*.files
+.*.includes
+
+# Compiled files
+*.o
+*.a
+*.so
+*.exe
+

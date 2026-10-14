@@ -1,0 +1,31 @@
+[project]
+name = "csrl"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+authors = [
+    { name = "Marc Toussaint", email = "toussaint@tu-berlin.de" }
+]
+requires-python = ">=3.10"
+dependencies = [
+    "robotic>=0.4.3a",
+    "scipy",
+    "omegaconf",
+    "hydra-core", "hydra-joblib-launcher",
+    "psutil",
+    "torch",
+    "tensorboard",
+    "h5py>=3.16.0",
+    "mujoco>=3.14.0",
+    "mujoco-warp>=3.14.0",
+    "gymnasium>=1.3.0",
+    "gymnasium-robotics>=1.4.2",
+    "stable-baselines3>=2.9.0",
+]
+
+[build-system]
+requires = ["uv_build>=0.12.15,<0.13.0"]
+build-backend = "uv_build"
+
+[tool.ruff]
+line-length = 180

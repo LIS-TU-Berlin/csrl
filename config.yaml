@@ -1,0 +1,484 @@
+tag: 'none'
+seed: -1 #-1 means random
+deterministic: false
+first_gpu: 0
+
+#hydra stuff
+defaults:
+  - override /hydra/launcher: joblib
+  #- override hydra/sweeper: optuna
+  
+hydra:
+  launcher:
+    n_jobs: 8
+
+scenario: 'double_sphere'
+# scenario: 'panda_sphere'
+# scenario: 'panda_sphere_real'
+# scenario: 'sphere_cube'
+# scenario: 'panda_cube'
+# scenario: 'twoFingersBall'
+# scenario: 'twoFingersCube'
+# scenario: tesollo_cube
+# scenario: allegro_cube
+# scenario: allegroDown_cube
+# scenario: 'g1_floor'
+
+files:
+  scene_yaml: nil
+  scene_xml: auto
+  configs: nil
+  rndDropConfigs: nil
+  splines: nil
+  episodes: nil
+  agent: nil
+
+  double_sphere:
+    # scene_yaml: 'scenes/double_sphere.yml'
+    scene_yaml: 'scenes/double_sphere.yml'
+    # scene_yaml: 'scenes/twoFingersCube.yml'
+    # scene_xml: 'scenes/double_sphere.xml'
+    # scene_xml: 'scenes/twoFingersCube.xml'
+    # configs: 'data/configs/double_sphere.h5'
+    # configs: 'data/configs/double_sphere_Jun24.h5'
+    configs: 'data/configs/double_sphere_Sep30.h5'
+    rndDropConfigs: 'data/configs/double_sphere_RndDrop_May14.h5'
+    # splines: 'data/fingerBall/splines_100k.h5'
+    # splines: 'data/fingerBall/splines_25k_balanceGoals.h5'
+    # splines: 'data/fingerBall/splines_100k_v01_Jan15.h5'
+    splines: 'data/splines/double_sphere_Jan12.h5'
+    # episodes: 'data/fingerBall/episodes_29k.h5'
+    episodes: 'data/episodes/double_sphere_Jan12.h5'
+    # episodes: 'data/fingerBall/episodes_3k_balanceGoals.h5'
+    # episodes: 'data/fingerBall/episodes_31k_v01.h5' BAD
+    # episodes: 'data/fingerBall/episodes_15k_v01_Jan15.h5'
+    # agent: 'data/models/ball-TD7_Jan25_10-52-26-pre.torch'
+    # agent: 'data/models/ball-TD7_Jan25_10-52-26-end.torch' #BEST
+    # agent: 'data/models/TD7_Jan28_10-05-10_best_DS.torch'
+    # agent: 'data/models/TD7_Jan31_16-40-36_pre02_50.torch'
+    # agent: 'data/models/TD7_Jan31_14-11-30.torch'
+    # agent: 'data/models/TD7_Jan31_20-41-17.torch'
+    # agent: 'data/models/TD7_Feb22_13-24-45.torch'
+    # agent: 'data/models/TD7_Feb22_13-24-45.torch'
+    # agent: 'data/models/TD7_Mar20_21-05-52.torch'
+    agent: 'data/models/260625-103647-double_sphere-TD7-CCic.torch' #Jun24
+
+  sphere_cube:
+    scene_yaml: 'scenes/sphere_cube.yml'
+    configs: 'data/configs/sphere_cube_Jun24.h5'
+    # configs: 'data/configs/sphere_cube_Sep30.h5'
+    # configs: 'data/configs/sphere_cube_real_Jun1.h5'
+    # agent: 'data/models/TD7_Apr12_19-53-22.torch'
+    # agent: 'data/models/TD7_Apr15_16-27-17.torch' #best so far
+    # agent: 'data/models/2604_Apr16_13-57-27_TD7.torch'
+    # agent: 'data/models/2604_Apr16_19-36-18_TD7.torch'
+    # agent: 'data/models/2604_Apr23_11-15-20_TD7.torch'
+    # agent: 'data/models/2605_May05_10-01-40_TD7.torch'
+    # agent: 'data/models/260522-234450-sphere_cube-TD7-CCic.torch'
+    # agent: 'data/models/260523-125311-sphere_cube-TD7-CCi.torch' #best, double trained
+    # agent: 'data/models/260601-225129-sphere_cube-TD7-CCic.torch' #trained for real cube dimensions!
+    # agent: 'data/models/260603-100326-sphere_cube-TD7-CCic.torch' #also real, but action_scale=0.5!!
+    agent: 'data/models/260626-045556-sphere_cube-TD7-CCic.torch' #Jun24
+
+  twoFingersBall:
+    scene_yaml: 'scenes/twoFingersBall.yml'
+    scene_xml: 'scenes/twoFingersBall.xml'
+    configs: 'data/fingerBall/configs_twoFingersBall_Jan15.h5'
+
+  panda_sphere:
+    scene_yaml: 'scenes/panda_sphere.yml'
+    # scene_xml: 'scenes/panda_sphere.xml'
+    # configs: 'data/configs/panda_sphere_Jun24.h5'
+    configs: 'data/configs/panda_sphere_Sep30.h5'
+    # configs: 'data/configs/panda_sphere_level_arm.h5'
+    rndDropConfigs: 'data/configs/panda_sphere_RndDrop_May17.h5'
+    # agent: 'data/models/TD7_Feb26_18-12-40.torch' #level 0
+    # agent: 'data/models/TD7_Feb28_22-49-29.torch' #level 2
+    # agent: 'data/models/TD7_Mar03_14-49-26.torch' #level 2 eff eff
+    # agent: 'data/models/TD7_Mar10_16-06-10.torch' #levelb1
+    # agent: 'data/models/TD7_Mar13_17-43-39.torch' #level3
+    # agent: 'data/models/TD7_Mar24_22-36-32.torch' #arm
+    # agent: 'data/models/260518-185725-panda_sphere-TD7-CCic.torch'
+    agent: 'data/models/260625-103702-panda_sphere-TD7_her-CCic.torch' #Jun24
+
+  panda_sphere_real:
+    scene_yaml: 'scenes/panda_sphere.yml'
+    configs: 'data/configs/panda_sphere_level0_Feb26.h5'
+
+  panda_cube:
+    scene_yaml: 'scenes/panda_cube.yml'
+    # configs: 'data/configs/panda_cube_Apr25.h5'
+    configs: 'data/configs/panda_cube_Jun24.h5'
+    # configs: 'data/configs/panda_cube_Sep30.h5'
+    # agent: 'data/models/2604_Apr19_07-30-38_TD7.torch'
+    # agent: 'data/models/2604_Apr25_14-15-28_TD7.torch'
+    # agent: 'data/models/2604_Apr25_11-29-31_TD7.torch'
+    # agent: 'data/models/2604_Apr27_18-16-33_TD7.torch' #top, position only!, no goalX ref points, eps 0.01
+    # agent: 'data/models/2604_Apr27_21-50-40_TD7.torch' #ends at 20%
+    # agent: 'data/models/2604_Apr28_10-14-53_TD7-40k.torch'
+    # agent: 'data/models/2604_Apr28_10-14-53_TD7-45k.torch'
+    # agent: 'data/models/2604_Apr28_10-14-53_TD7-50k.torch'
+    # agent: 'data/models/260521-175933-panda_cube-TD7-CCic.torch'
+    # agent: 'data/models/260619-130847-panda_cube-TD7_her-CCic.torch'
+    # agent: 'data/models/260626-153521-panda_cube-TD7_her-CCic.torch' #Jun24
+    agent: 'data/models/260831-230603-panda_cube-TD7_her-CC.torch' #Sep1 (with low friction on endeff!)
+
+  pandaS_cube:
+    scene_yaml: 'scenes/pandaS_cube.yml'
+    configs: 'data/configs/pandaS_cube_May1.h5'
+
+  tesollo_cube:
+    scene_yaml: 'scenes/tesollo_cube.yml'
+    configs: 'data/configs/tesollo_cube_Feb19.h5'
+
+  allegro_cube:
+    scene_yaml: 'scenes/allegro_cube.yml'
+    # scene_xml: 'scenes/allegro_cube_manual.xml'
+    # configs: 'data/configs/allegro_cube_Jun24.h5'
+    configs: 'data/configs/allegro_cube_Sep30.h5'
+    # configs: 'data/configs/allegro_cube_50k.h5'
+    # agent: 'data/models/260524-184721-allegro_cube-TD7-CCic.torch'
+    # agent: 'data/models/260603-221454-allegro_cube-TD7_her-CCic.torch'
+    # agent: 'data/models/260608-104123-allegro_cube-TD7_her-CCic.torch'
+    # agent: 'data/models/260613-212730-allegro_cube-TD7_her-CCic.torch'
+    # agent: 'data/models/260615-141153-allegro_cube-TD7_her-CCc.torch'
+    # agent: 'data/models/260615-134730-allegro_cube-TD7_her-CCic.torch'
+    # agent: 'data/models/260617-165536-allegro_cube-TD7-CCc.torch'
+    agent: 'data/models/260625-103632-allegro_cube-TD7_her-CCic.torch' #Jun24 friction: 2, obs :-4, no 'obj' observation
+
+  allegroDown_cube:
+    scene_yaml: 'scenes/allegroDown_cube.yml'
+    # configs: 'data/configs/allegroDown_cube_Jun24.h5'
+    configs: 'data/configs/allegroDown_cube_Sep30.h5'
+    agent: 'data/models/260625-103642-allegroDown_cube-TD7_her-CCic.torch' #Jun24
+
+  g1_floor:
+    scene_yaml: 'scenes/g1_floor.yml'
+    scene_xml: 'scenes/g1_floor.xml'
+    # configs: 'data/configs/g1_floor_Jul17.h5'
+    # configs: 'data/configs/g1_floor_Sep7.h5'
+    # configs: 'data/configs/g1_floor_aug_Jul18.h5'
+    configs: 'data/configs/g1_floor_Sep13.h5'
+    agent: 'data/models/260717-211422-g1_floor-TD7_her-CCic.torch' #to reactivate: obs pts=[], goal pts=[hand..foot..], (also metric?) o_pos :-4
+
+ConstrainedSampling:
+  verbose: 1
+  num_samples: 100
+  frictionCone_mu: .8
+  savePngs: false
+  
+  min_n_supports: 1
+  max_n_supports: 3
+  scene_yaml: nil #overwritten by scenario specific below
+  supports_env: nil   #overwritten by scenario specific below
+  supports_float: [ "obj" ]   #overwritten by scenario specific below
+  com_name: "obj"
+
+  double_sphere:
+    scene_yaml: 'scenes/double_sphere.yml'
+    supports_env: [ "table", "box", "wall", "fing" ]
+
+  panda_sphere:
+    scene_yaml: 'scenes/panda_sphere.yml'
+    supports_env: [ "panda_finger_joint1",  "panda_rightfinger_0",  "panda_hand_joint",
+        "panda_joint1", "panda_joint2", "panda_joint3", "panda_joint4", "panda_joint5", "panda_joint6", "panda_joint7",
+        "panda_link0",
+        "table" ]
+
+  sphere_cube:
+    scene_yaml: 'scenes/sphere_cube.yml'
+    supports_env: [ "table", "fing" ]
+    min_n_supports: 2
+    max_n_supports: 2
+
+  allegro_cube:
+    scene_yaml: 'scenes/allegro_cube.yml'
+    supports: [ "tip1", "tip2", "tip3", "tip4" ]
+    min_n_supports: 2
+    max_n_supports: 4
+
+  ry:
+    Render/renderText: false
+    opt/stopEvals: 200
+    opt/stopTolerance: 1e-3
+    opt/stopFTolerance: 1e-3
+    opt/stopGTolerance: 1e-3
+
+SplineOpt:
+  num_tasks: 20 #100000
+  num_proc: 1 #50
+  verbose: 2
+  init_method: 'none'
+  ry:
+    # opt/method: 'LSBO'
+    # opt/method: 'CMA'
+    opt/method: 'LS_CMA'
+    opt/verbose: 1
+    opt/stopEvals: 2000
+    opt/stopTolerance: 1e-4
+    opt/stepMax: .1
+    LSBO/minDamping: 1e-3
+    LSBO/maxDamping: 1e+2
+    LSBO/noiseRatio: .1
+    LSBO/weightRatio: 4.
+    CMA/sigmaInit: .01
+    CMA/lambda: 10
+    LS_CMA/ls_lambda: 1
+
+Gym:
+  num_scenes: 1 #80 50
+  warp_worlds: 2000
+  friction: "0.8 0.1 0.1"
+  solref: "0.005 1."
+  view_mj: false #ALWAYS try for a new configuration!! (with play_random_agent)
+  debug_collisions: false #ALWAYS try for a new configuration!! (with play_random_agent)
+  debug_limits: false #ALWAYS try for a new configuration!! (with play_random_agent)
+  tau_sim: 0.001
+  tau_step: 0.05
+  time_limit: 1. #(is overwritten by nominal time limit)
+  goal_feat_eps: 1e-2
+  goal_inf_norm: false
+  goal_feat_ori_scale: 0.
+  reward_dense_radius: 10.
+  cost_const: 0.0
+  obs_nonctrl_q: False
+  obs_pos_scale: 1.
+  obs_pos_offset: []
+  obs_vel_scale: .1
+  obs_referr_scale: 10.
+  limits_margin: 0.5
+  action_eff: none #panda_hand_joint
+  goal_feat_points: ['obj', 'obj_base']
+  action_scale: 1.
+  obs_points: ['obj', 'obj_base'] #the object position is not anymore part of obsq! only controlled dofs
+  collide_exclude: []
+  double_sphere:
+    # obs_nonctrl_q: True
+    # obs_vel_scale: .05
+    # obs_referr_scale: 20.
+    action_scale: 2.
+  panda_sphere:
+    action_scale: 5.
+    obs_points: ['obj', 'obs1', 'obs2', 'obs3', 'obj_base']
+  sphere_cube:
+    goal_feat_eps: 0.03
+    action_scale: 2. #0.5 for real transfer?
+    obs_points: ['obj', 'goal1', 'goal2', 'goal3', 'goal4', 'obj_base']
+    goal_feat_points: ['obj', 'goal1', 'goal2', 'goal3', 'goal4', 'obj_base']
+  panda_cube:
+    obs_pos_offset: [-0.7, -0.5, 0, -2.5, 0, 2, -0.5] #, 0, 0, 0.3 ] #latter: to evaluate old policy with :-4
+    goal_feat_eps: 0.05
+    action_scale: 5.
+    obs_points: ['obj', 'goal1', 'goal2', 'goal3', 'goal4', 'obs1', 'obs2', 'obs3', 'obj_base']
+    goal_feat_points: ['obj', 'goal1', 'goal2', 'goal3', 'goal4', 'obj_base']
+  allegro_cube:
+    friction: "2.0 0.1 0.1"
+    goal_feat_eps: 0.02
+    reward_dense_radius: 20.
+    action_scale: 2.
+    obs_points: ['obj', 'goal1', 'goal2', 'goal3', 'goal4', 'tip1', 'tip2', 'tip3', 'tip4', 'obj_base']
+    goal_feat_points: ['obj', 'goal1', 'goal2', 'goal3', 'goal4', 'obj_base']
+    collide_exclude: [
+      'base_link', 'joint_0.0',
+      'base_link', 'joint_4.0',
+      'base_link', 'joint_8.0',
+      'base_link', 'joint_12.0']
+  allegroDown_cube:
+    friction: "1.0 0.1 0.1" #might work also with normal friction
+    solref: "0.002 1."
+    goal_feat_eps: 0.02
+    reward_dense_radius: 20.
+    action_scale: 2.
+    obs_points: ['obj', 'goal1', 'goal2', 'goal3', 'goal4', 'tip1', 'tip2', 'tip3', 'tip4', 'obj_base']
+    goal_feat_points: ['obj', 'goal1', 'goal2', 'goal3', 'goal4', 'obj_base']
+    collide_exclude: [
+      'base_link', 'joint_0.0',
+      'base_link', 'joint_4.0',
+      'base_link', 'joint_8.0',
+      'base_link', 'joint_12.0']
+  g1_floor:
+    friction: "3.0 0.1 0.1"
+    solref: "0.002 1."
+    goal_feat_eps: 0.05
+    action_scale: 2.
+    limits_margin: .3
+    # obs_points: ['head', 'hand_l', 'hand_r', 'foot_l', 'foot_r', 'g1_base']
+    # obs_nonctrl_q: True
+    # obs_points: ['shoulder_l', 'shoulder_r', 'foot_l', 'foot_r', 'g1_base']
+    # goal_feat_points: ['shoulder_l', 'shoulder_r', 'foot_l', 'foot_r', 'g1_base']
+    goal_feat_points: ['pelvis', 'table']
+    obs_points: ['pelvis', 'left_shoulder_pitch_link', 'right_shoulder_pitch_link', 'left_ankle_roll_link', 'right_ankle_roll_link', 'table']
+    # goal_feat_points: ['hand_l', 'hand_r', 'foot_l', 'foot_r', 'g1_base']
+    collide_exclude: [
+      "pelvis", "waist_support_link_0",
+      "left_knee_joint", "left_ankle_roll_joint",
+      "right_knee_joint", "right_ankle_roll_joint",
+      "waist_yaw_joint", "waist_pitch_joint",
+      "waist_yaw_joint", "waist_support_link_0"]
+
+NLP:
+  total_time: 1.
+  ctrl_pts: 4
+
+metric:
+  scale_obj: 1.
+  scale_ori: 0.
+  scale_q: 0.5
+  scale_vel: 0.
+  scale_d: 0.1
+  d_sigma: .1
+  points: ['obj']
+  sphere_cube:
+    scale_q: 0.2
+    points: ['obj', 'goal1', 'goal2', 'goal3', 'goal4' ]
+    scale_d: 0.
+  panda_cube:
+    scale_q: 0.2
+    points: ['obj', 'goal1', 'goal2', 'goal3', 'goal4' ]
+    scale_d: 0.
+  allegro_cube:
+    scale_q: 0.2
+    points: ['obj', 'goal1', 'goal2', 'goal3', 'goal4' ]
+    scale_d: 0.
+  allegroDown_cube:
+    scale_q: 0.2
+    points: ['obj', 'goal1', 'goal2', 'goal3', 'goal4' ]
+    scale_d: 0.
+  g1_floor:
+    scale_q: 0.2
+    points: ['pelvis']
+    scale_d: 0.
+
+RL_goal_feat_map:
+  scale_obj: 1.
+  scale_ori: 0 # .25 # 0
+  scale_q: 0.
+  scale_vel: 0.
+  scale_d: 0.
+
+CSRL:
+  files: nil
+  RL_method: 'TD7'
+  # RL_method: 'TD3'
+  # RL_method: 'sbTD3'
+  # RL_method: 'sbTD3_her'
+  # RL_method: 'sbSAC'
+  # RL_method: 'sbPPO'
+  initialize_agent: 'none'
+  start_goal_mode: 'CCic'
+
+  T_block: 5_000
+  T_curr: 100_000 # 0 means no curriculum and OVERWRITES the domain specific
+  T_end: 200_000
+  T_cloning: 0
+  final_eval_episodes: 2000
+  nominal_time_limit: 3.
+  discount_half_life: 2.
+  force_reference_scale: 0.0 #multiplied to J^T * force to initialize ctrl ref away from q
+  double_sphere:
+    nominal_time_limit: 1.
+    discount_half_life: 1.
+    T_curr: 50_000
+    T_end: 75_000
+  panda_sphere:
+    T_curr: 50_000
+    T_end: 100_000
+    nominal_time_limit: 2.
+    discount_half_life: 1.
+  sphere_cube:
+    T_end: 150_000
+  allegro_cube:
+    force_reference_scale: -0.4 #multiplied to J^T * force to initialize ctrl ref away from q
+  allegroDown_cube:
+    force_reference_scale: -0.4 #multiplied to J^T * force to initialize ctrl ref away from q
+  g1_floor:
+    force_reference_scale: -1.
+    nominal_time_limit: 3.
+    T_end: 300_000
+
+TD7:
+  tag: nil
+  datasize_before_training: 250_000
+  datasize_before_execution: 250_000
+  train_steps: 20
+  
+  # reporting
+  eval_freq: 1_000
+  write_trace: false
+  write_replay_buffer: false
+
+  # Generic
+  learning_rate: 1e-3 #3e-4
+  batch_size: 10000 #5000
+  buffer_size: 4_000_000
+  discount: 0.95
+  target_update_rate: 250
+  exploration_noise: 0.05 # 0.025
+  value_clip: [0., 2.]
+  obs_normalize: false
+  
+  # TD3
+  target_policy_noise: 0.05 # 0.025
+  noise_clip: 0.1 # 0.05
+  policy_freq: 2
+  target_tau: 0.005
+  
+  # LAP
+  alpha: 0.4
+  min_priority: 1
+
+  # HER
+  HER_ratio: 1.0 #0.5
+  HER_samples: 1
+
+  # Encoder Model
+  zs_dim: 512
+  enc_hdim: 512
+  critic_hdim: 256
+  actor_hdim: 256
+
+  compile: true
+
+  double_sphere:
+    zs_dim: 256
+    enc_hdim: 256
+    buffer_size: 1_000_000
+  panda_sphere:
+    buffer_size: 2_000_000
+  sphere_cube:
+    buffer_size: 4_000_000
+  panda_cube:
+    learning_rate: 3e-4
+    batch_size: 5000
+    buffer_size: 5_000_000
+    zs_dim: 1024
+    enc_hdim: 1024
+    critic_hdim: 512
+    actor_hdim: 512
+  allegro_cube:
+    learning_rate: 3e-4
+    batch_size: 5000
+    buffer_size: 5_000_000
+    zs_dim: 1024
+    enc_hdim: 1024
+    critic_hdim: 512
+    actor_hdim: 512
+  allegroDown_cube:
+    learning_rate: 3e-4
+    batch_size: 5000
+    buffer_size: 5_000_000
+    zs_dim: 1024
+    enc_hdim: 1024
+    critic_hdim: 512
+    actor_hdim: 512
+  g1_floor:
+    # value_clip: [-10., 10.]
+    buffer_size: 4_000_000
+  
+
+PPO:
+  n_steps: 1
+  batch_size: 500 #!!! much less than for TD7!
+  n_epochs: 10 # training epochs! (1epoch = n_envs/batch_size training steps) steps per iteration
+  learning_rate: 3e-4
+  eval_freq: 1000

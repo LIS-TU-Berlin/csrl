@@ -1,0 +1,68 @@
+<mujoco model="ry_convert">
+  <compiler autolimits="false" angle="radian" />
+  <option ccd_iterations="100">
+    <flag multiccd="disable" nativeccd="disable" />
+  </option>
+  <size memory="200M" />
+  <default>
+    <joint solreflimit="0.002 1" />
+    <default class="ryjoint">
+      <position kp="1000" kv="10" />
+    </default>
+    <default class="geom_fric">
+      <geom friction="0.8 0.1 0.1" solref="0.005 1." />
+    </default>
+  </default>
+  <contact />
+  <asset />
+  <visual>
+    <headlight ambient="0.4 0.4 0.4" diffuse="0.8 0.8 0.8" specular="0.1 0.1 0.1" />
+    <map znear="0.01" />
+    <global offwidth="1200" offheight="800" />
+  </visual>
+  <actuator>
+    <position name="joint1" joint="joint1" class="ryjoint" />
+    <position name="joint2" joint="joint2" class="ryjoint" />
+    <position name="fing" joint="fing" class="ryjoint" />
+  </actuator>
+  <worldbody>
+    <body name="base" pos="0.0 0.0 0.5">
+      <body name="fake">
+        <body name="joint1">
+          <joint name="joint1" damping="0.1" type="slide" axis="1 0 0" range="-0.5 0.5" limited="true" />
+          <inertial mass="0.01" diaginertia="1.0000000000000002e-06 1.0000000000000002e-06 1.0000000000000002e-06" pos="0 0 0" />
+          <body name="joint2">
+            <joint name="joint2" damping="0.1" type="slide" axis="0 1 0" range="-0.5 0.5" limited="true" />
+            <inertial mass="0.01" diaginertia="1.0000000000000002e-06 1.0000000000000002e-06 1.0000000000000002e-06" pos="0 0 0" />
+            <body name="fing">
+              <joint name="fing" damping="0.1" type="slide" axis="0 0 1" range="-0.4 0.5" limited="true" />
+              <geom type="sphere" size="0.05" rgba="0.0 1.0 1.0 1" class="geom_fric" />
+              <inertial mass="0.1" diaginertia="0.00016408381990458848 0.0001640838199045882 0.0001640838199045882" pos="0 0 0" />
+            </body>
+          </body>
+        </body>
+      </body>
+    </body>
+    <body name="table" pos="0.0 0.0 0.1">
+      <geom type="box" size="0.5 0.5 0.05" rgba="0.6 0.6 0.6 1.0" class="geom_fric" />
+      <body name="wall" pos="0.45 0.0 0.3">
+        <geom type="box" margin="0.002" size="0.048 0.498 0.248" rgba="0.6 0.6 0.6 1.0" class="geom_fric" />
+      </body>
+      <body name="box" pos="-0.05 -0.35 0.25">
+        <geom type="box" margin="0.002" size="0.448 0.148 0.198" rgba="0.6 0.6 0.6 1.0" class="geom_fric" />
+      </body>
+    </body>
+    <body name="obj_base" />
+    <body name="obj">
+      <freejoint />
+      <geom type="box" margin="0.005" size="0.075 0.075 0.075" rgba="1.0 0.5 0.0 1" class="geom_fric" />
+      <inertial mass="0.2" diaginertia="0.0014048591685060776 0.0014048591685060779 0.0014048591685060776" pos="0 0 0" />
+      <body name="goal1" pos="0.08 0.08 0.08" />
+      <body name="goal2" pos="0.08 -0.08 -0.08" />
+      <body name="goal3" pos="-0.08 0.08 -0.08" />
+      <body name="goal4" pos="-0.08 -0.08 0.08" />
+    </body>
+    <body name="camera_init" pos="-0.0 1.6 0.85" quat="0.01703425626589215 -0.022044331638213368 0.7986060143480025 -0.6012090446785464" />
+    <camera name="cam0" pos="-0.0 1.6 0.85" quat="0.01703425626589215 -0.022044331638213368 0.7986060143480025 -0.6012090446785464" />
+  </worldbody>
+</mujoco>

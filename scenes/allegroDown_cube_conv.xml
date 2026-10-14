@@ -1,0 +1,211 @@
+<mujoco model="ry_convert">
+  <compiler autolimits="false" angle="radian" />
+  <option ccd_iterations="100">
+    <flag multiccd="disable" nativeccd="disable" />
+  </option>
+  <size memory="200M" />
+  <default>
+    <joint solreflimit="0.002 1" />
+    <default class="ryjoint">
+      <position kp="1000" kv="10" />
+    </default>
+    <default class="geom_fric">
+      <geom friction="1.0 0.1 0.1" solref="0.002 1." />
+    </default>
+  </default>
+  <contact>
+    <exclude body1="base_link" body2="joint_0.0" />
+    <exclude body1="base_link" body2="joint_4.0" />
+    <exclude body1="base_link" body2="joint_8.0" />
+    <exclude body1="base_link" body2="joint_12.0" />
+  </contact>
+  <asset>
+    <mesh name="/home/mtoussai/git/rai-robotModels/allegro/meshes/base_link" file="/home/mtoussai/git/rai-robotModels/allegro/meshes/base_link.stl" />
+    <mesh name="/home/mtoussai/git/rai-robotModels/allegro/meshes/link_0.0" file="/home/mtoussai/git/rai-robotModels/allegro/meshes/link_0.0.stl" />
+    <mesh name="/home/mtoussai/git/rai-robotModels/allegro/meshes/link_1.0" file="/home/mtoussai/git/rai-robotModels/allegro/meshes/link_1.0.stl" />
+    <mesh name="/home/mtoussai/git/rai-robotModels/allegro/meshes/link_2.0" file="/home/mtoussai/git/rai-robotModels/allegro/meshes/link_2.0.stl" />
+    <mesh name="/home/mtoussai/git/rai-robotModels/allegro/meshes/link_3.0" file="/home/mtoussai/git/rai-robotModels/allegro/meshes/link_3.0.stl" />
+    <mesh name="/home/mtoussai/git/rai-robotModels/allegro/meshes/link_3.0_tip" file="/home/mtoussai/git/rai-robotModels/allegro/meshes/link_3.0_tip.stl" />
+    <mesh name="/home/mtoussai/git/rai-robotModels/allegro/meshes/link_12.0_right" file="/home/mtoussai/git/rai-robotModels/allegro/meshes/link_12.0_right.stl" />
+    <mesh name="/home/mtoussai/git/rai-robotModels/allegro/meshes/link_13.0" file="/home/mtoussai/git/rai-robotModels/allegro/meshes/link_13.0.stl" />
+    <mesh name="/home/mtoussai/git/rai-robotModels/allegro/meshes/link_14.0" file="/home/mtoussai/git/rai-robotModels/allegro/meshes/link_14.0.stl" />
+    <mesh name="/home/mtoussai/git/rai-robotModels/allegro/meshes/link_15.0" file="/home/mtoussai/git/rai-robotModels/allegro/meshes/link_15.0.stl" />
+    <mesh name="/home/mtoussai/git/rai-robotModels/allegro/meshes/link_15.0_tip" file="/home/mtoussai/git/rai-robotModels/allegro/meshes/link_15.0_tip.stl" />
+  </asset>
+  <visual>
+    <headlight ambient="0.4 0.4 0.4" diffuse="0.8 0.8 0.8" specular="0.1 0.1 0.1" />
+    <map znear="0.01" />
+    <global offwidth="1200" offheight="800" />
+  </visual>
+  <actuator>
+    <position name="joint_0.0" joint="joint_0.0" class="ryjoint" kp="3.0" kv="0.0" />
+    <position name="joint_1.0" joint="joint_1.0" class="ryjoint" kp="3.0" kv="0.0" />
+    <position name="joint_2.0" joint="joint_2.0" class="ryjoint" kp="3.0" kv="0.0" />
+    <position name="joint_3.0" joint="joint_3.0" class="ryjoint" kp="3.0" kv="0.0" />
+    <position name="joint_4.0" joint="joint_4.0" class="ryjoint" kp="3.0" kv="0.0" />
+    <position name="joint_5.0" joint="joint_5.0" class="ryjoint" kp="3.0" kv="0.0" />
+    <position name="joint_6.0" joint="joint_6.0" class="ryjoint" kp="3.0" kv="0.0" />
+    <position name="joint_7.0" joint="joint_7.0" class="ryjoint" kp="3.0" kv="0.0" />
+    <position name="joint_8.0" joint="joint_8.0" class="ryjoint" kp="3.0" kv="0.0" />
+    <position name="joint_9.0" joint="joint_9.0" class="ryjoint" kp="3.0" kv="0.0" />
+    <position name="joint_10.0" joint="joint_10.0" class="ryjoint" kp="3.0" kv="0.0" />
+    <position name="joint_11.0" joint="joint_11.0" class="ryjoint" kp="3.0" kv="0.0" />
+    <position name="joint_12.0" joint="joint_12.0" class="ryjoint" kp="3.0" kv="0.0" />
+    <position name="joint_13.0" joint="joint_13.0" class="ryjoint" kp="3.0" kv="0.0" />
+    <position name="joint_14.0" joint="joint_14.0" class="ryjoint" kp="3.0" kv="0.0" />
+    <position name="joint_15.0" joint="joint_15.0" class="ryjoint" kp="3.0" kv="0.0" />
+  </actuator>
+  <worldbody>
+    <body name="base_link" pos="-0.02 0.0 0.6" quat="0.0 -0.7071067811865475 0.0 0.7071067811865475">
+      <geom type="mesh" mesh="/home/mtoussai/git/rai-robotModels/allegro/meshes/base_link" rgba="0.2 0.2 0.2 1.0" class="geom_fric" />
+      <body name="joint_0.0_origin" pos="0.0 0.0435 -0.001542" quat="0.9990482215947686 -0.043619387069629104 0.0 0.0">
+        <body name="joint_0.0">
+          <joint name="joint_0.0" damping="0.02" type="hinge" axis="0 0 1" range="-0.47 0.47" limited="true" />
+          <geom type="mesh" mesh="/home/mtoussai/git/rai-robotModels/allegro/meshes/link_0.0" rgba="0.2 0.2 0.2 1.0" class="geom_fric" />
+          <inertial mass="0.013808056" diaginertia="2.1022637e-06 1.4970893e-06 1.957371e-06" pos="0 0 0" />
+          <body name="joint_1.0_origin" pos="0.0 0.0 0.0164">
+            <body name="joint_1.0">
+              <joint name="joint_1.0" damping="0.02" type="hinge" axis="0 1 0" range="-0.196 1.61" limited="true" />
+              <geom type="mesh" mesh="/home/mtoussai/git/rai-robotModels/allegro/meshes/link_1.0" rgba="0.2 0.2 0.2 1.0" class="geom_fric" />
+              <inertial mass="0.035244466" diaginertia="2.0568314e-05 1.934911e-05 5.6123498e-06" pos="0 0 0" />
+              <body name="joint_2.0_origin" pos="0.0 0.0 0.054">
+                <body name="joint_2.0">
+                  <joint name="joint_2.0" damping="0.02" type="hinge" axis="0 1 0" range="-0.174 1.709" limited="true" />
+                  <geom type="mesh" mesh="/home/mtoussai/git/rai-robotModels/allegro/meshes/link_2.0" rgba="0.2 0.2 0.2 1.0" class="geom_fric" />
+                  <inertial mass="0.027070958" diaginertia="1.0264501e-05 9.2145404e-06 4.2471391e-06" pos="0 0 0" />
+                  <body name="joint_3.0_origin" pos="0.0 0.0 0.0384">
+                    <body name="joint_3.0">
+                      <joint name="joint_3.0" damping="0.02" type="hinge" axis="0 1 0" range="-0.227 1.618" limited="true" />
+                      <geom type="mesh" mesh="/home/mtoussai/git/rai-robotModels/allegro/meshes/link_3.0" rgba="0.2 0.2 0.2 1.0" class="geom_fric" />
+                      <inertial mass="0.024970286" diaginertia="5.575506e-06 4.9829053e-06 3.2227442e-06" pos="-0.00042809556 -3.050846e-08 0.014141276" />
+                      <body name="link_3.0_tip_0" pos="0.0 0.0 0.0267">
+                        <geom type="mesh" mesh="/home/mtoussai/git/rai-robotModels/allegro/meshes/link_3.0_tip" rgba="0.9 0.9 0.9 1.0" class="geom_fric" />
+                        <body name="tip1">
+                          <geom type="sphere" size="0.0122" rgba="0.0 1.0 1.0 1" class="geom_fric" />
+                        </body>
+                      </body>
+                    </body>
+                  </body>
+                </body>
+              </body>
+            </body>
+          </body>
+        </body>
+      </body>
+      <body name="joint_4.0_origin" pos="0.0 0.0 0.0007">
+        <body name="joint_4.0">
+          <joint name="joint_4.0" damping="0.02" type="hinge" axis="0 0 1" range="-0.47 0.47" limited="true" />
+          <geom type="mesh" mesh="/home/mtoussai/git/rai-robotModels/allegro/meshes/link_0.0" rgba="0.2 0.2 0.2 1.0" class="geom_fric" />
+          <inertial mass="0.013808056" diaginertia="2.1022637e-06 1.4970893e-06 1.957371e-06" pos="0 0 0" />
+          <body name="joint_5.0_origin" pos="0.0 0.0 0.0164">
+            <body name="joint_5.0">
+              <joint name="joint_5.0" damping="0.02" type="hinge" axis="0 1 0" range="-0.196 1.61" limited="true" />
+              <geom type="mesh" mesh="/home/mtoussai/git/rai-robotModels/allegro/meshes/link_1.0" rgba="0.2 0.2 0.2 1.0" class="geom_fric" />
+              <inertial mass="0.035244466" diaginertia="2.0568314e-05 1.934911e-05 5.6123498e-06" pos="0 0 0" />
+              <body name="joint_6.0_origin" pos="0.0 0.0 0.054">
+                <body name="joint_6.0">
+                  <joint name="joint_6.0" damping="0.02" type="hinge" axis="0 1 0" range="-0.174 1.709" limited="true" />
+                  <geom type="mesh" mesh="/home/mtoussai/git/rai-robotModels/allegro/meshes/link_2.0" rgba="0.2 0.2 0.2 1.0" class="geom_fric" />
+                  <inertial mass="0.027070958" diaginertia="1.0264501e-05 9.2145404e-06 4.2471391e-06" pos="0 0 0" />
+                  <body name="joint_7.0_origin" pos="0.0 0.0 0.0384">
+                    <body name="joint_7.0">
+                      <joint name="joint_7.0" damping="0.02" type="hinge" axis="0 1 0" range="-0.227 1.618" limited="true" />
+                      <geom type="mesh" mesh="/home/mtoussai/git/rai-robotModels/allegro/meshes/link_3.0" rgba="0.2 0.2 0.2 1.0" class="geom_fric" />
+                      <inertial mass="0.024970286" diaginertia="5.575506e-06 4.9829053e-06 3.2227442e-06" pos="-0.00042809556 -3.050846e-08 0.014141276" />
+                      <body name="link_7.0_tip_0" pos="0.0 0.0 0.0267">
+                        <geom type="mesh" mesh="/home/mtoussai/git/rai-robotModels/allegro/meshes/link_3.0_tip" rgba="0.9 0.9 0.9 1.0" class="geom_fric" />
+                        <body name="tip2">
+                          <geom type="sphere" size="0.0122" rgba="0.0 1.0 1.0 1" class="geom_fric" />
+                        </body>
+                      </body>
+                    </body>
+                  </body>
+                </body>
+              </body>
+            </body>
+          </body>
+        </body>
+      </body>
+      <body name="joint_8.0_origin" pos="0.0 -0.0435 -0.001542" quat="0.9990482215947686 0.043619387069629104 0.0 0.0">
+        <body name="joint_8.0">
+          <joint name="joint_8.0" damping="0.02" type="hinge" axis="0 0 1" range="-0.47 0.47" limited="true" />
+          <geom type="mesh" mesh="/home/mtoussai/git/rai-robotModels/allegro/meshes/link_0.0" rgba="0.2 0.2 0.2 1.0" class="geom_fric" />
+          <inertial mass="0.013808056" diaginertia="2.1022637e-06 1.4970893e-06 1.957371e-06" pos="0 0 0" />
+          <body name="joint_9.0_origin" pos="0.0 0.0 0.0164">
+            <body name="joint_9.0">
+              <joint name="joint_9.0" damping="0.02" type="hinge" axis="0 1 0" range="-0.196 1.61" limited="true" />
+              <geom type="mesh" mesh="/home/mtoussai/git/rai-robotModels/allegro/meshes/link_1.0" rgba="0.2 0.2 0.2 1.0" class="geom_fric" />
+              <inertial mass="0.035244466" diaginertia="2.0568314e-05 1.934911e-05 5.6123498e-06" pos="0 0 0" />
+              <body name="joint_10.0_origin" pos="0.0 0.0 0.054">
+                <body name="joint_10.0">
+                  <joint name="joint_10.0" damping="0.02" type="hinge" axis="0 1 0" range="-0.174 1.709" limited="true" />
+                  <geom type="mesh" mesh="/home/mtoussai/git/rai-robotModels/allegro/meshes/link_2.0" rgba="0.2 0.2 0.2 1.0" class="geom_fric" />
+                  <inertial mass="0.027070958" diaginertia="1.0264501e-05 9.2145404e-06 4.2471391e-06" pos="0 0 0" />
+                  <body name="joint_11.0_origin" pos="0.0 0.0 0.0384">
+                    <body name="joint_11.0">
+                      <joint name="joint_11.0" damping="0.02" type="hinge" axis="0 1 0" range="-0.227 1.618" limited="true" />
+                      <geom type="mesh" mesh="/home/mtoussai/git/rai-robotModels/allegro/meshes/link_3.0" rgba="0.2 0.2 0.2 1.0" class="geom_fric" />
+                      <inertial mass="0.024970286" diaginertia="5.575506e-06 4.9829053e-06 3.2227442e-06" pos="-0.00042809556 -3.050846e-08 0.014141276" />
+                      <body name="link_11.0_tip_0" pos="0.0 0.0 0.0267">
+                        <geom type="mesh" mesh="/home/mtoussai/git/rai-robotModels/allegro/meshes/link_3.0_tip" rgba="0.9 0.9 0.9 1.0" class="geom_fric" />
+                        <body name="tip3">
+                          <geom type="sphere" size="0.0122" rgba="0.0 1.0 1.0 1" class="geom_fric" />
+                        </body>
+                      </body>
+                    </body>
+                  </body>
+                </body>
+              </body>
+            </body>
+          </body>
+        </body>
+      </body>
+      <body name="joint_12.0_origin" pos="-0.0182 0.019333 -0.045987" quat="0.477714420908433 -0.5213338009913806 -0.5213338009913806 -0.477714420908433">
+        <body name="joint_12.0">
+          <joint name="joint_12.0" damping="0.02" type="hinge" axis="-1.0 0.0 0.0" range="0.263 1.396" limited="true" />
+          <geom type="mesh" mesh="/home/mtoussai/git/rai-robotModels/allegro/meshes/link_12.0_right" rgba="0.2 0.2 0.2 1.0" class="geom_fric" />
+          <inertial mass="0.041444798" diaginertia="1.6818661e-05 1.9764212e-05 1.4564616e-05" pos="0 0 0" />
+          <body name="joint_13.0_origin" pos="-0.027 0.005 0.0399">
+            <body name="joint_13.0">
+              <joint name="joint_13.0" damping="0.02" type="hinge" axis="0 0 1" range="-0.105 1.163" limited="true" />
+              <geom type="mesh" mesh="/home/mtoussai/git/rai-robotModels/allegro/meshes/link_13.0" rgba="0.2 0.2 0.2 1.0" class="geom_fric" />
+              <inertial mass="0.013797361" diaginertia="2.0988339e-06 1.4938862e-06 1.9548297e-06" pos="0 0 0" />
+              <body name="joint_14.0_origin" pos="0.0 0.0 0.0177">
+                <body name="joint_14.0">
+                  <joint name="joint_14.0" damping="0.02" type="hinge" axis="0 1 0" range="-0.189 1.644" limited="true" />
+                  <geom type="mesh" mesh="/home/mtoussai/git/rai-robotModels/allegro/meshes/link_14.0" rgba="0.2 0.2 0.2 1.0" class="geom_fric" />
+                  <inertial mass="0.033124485" diaginertia="1.7288432e-05 1.5980393e-05 5.3430005e-06" pos="0 0 0" />
+                  <body name="joint_15.0_origin" pos="0.0 0.0 0.0514">
+                    <body name="joint_15.0">
+                      <joint name="joint_15.0" damping="0.02" type="hinge" axis="0 1 0" range="-0.162 1.719" limited="true" />
+                      <geom type="mesh" mesh="/home/mtoussai/git/rai-robotModels/allegro/meshes/link_15.0" rgba="0.2 0.2 0.2 1.0" class="geom_fric" />
+                      <inertial mass="0.033174351" diaginertia="1.2987e-05 1.2215653e-05 4.6008459e-06" pos="8.0569023e-19 4.9981746e-05 0.021744914" />
+                      <body name="link_15.0_tip_0" pos="0.0 0.0 0.0423">
+                        <geom type="mesh" mesh="/home/mtoussai/git/rai-robotModels/allegro/meshes/link_15.0_tip" rgba="0.9 0.9 0.9 1.0" class="geom_fric" />
+                        <body name="tip4">
+                          <geom type="sphere" size="0.0122" rgba="0.0 1.0 1.0 1" class="geom_fric" />
+                        </body>
+                      </body>
+                    </body>
+                  </body>
+                </body>
+              </body>
+            </body>
+          </body>
+        </body>
+      </body>
+    </body>
+    <body name="obj_base" />
+    <body name="obj">
+      <freejoint />
+      <geom type="box" margin="0.005" size="0.024999999999999998 0.024999999999999998 0.024999999999999998" rgba="1.0 0.5 0.0 1" class="geom_fric" />
+      <inertial mass="0.2" diaginertia="0.00019244455193106018 0.00019244455193106024 0.00019244455193106024" pos="0 0 0" />
+      <body name="goal1" pos="0.03 0.03 0.03" />
+      <body name="goal2" pos="0.03 -0.03 -0.03" />
+      <body name="goal3" pos="-0.03 0.03 -0.03" />
+      <body name="goal4" pos="-0.03 -0.03 0.03" />
+    </body>
+    <body name="camera_init" pos="0.13 0.23 0.55" quat="0.1834444024068545 -0.1834444024068545 -0.6930121868703394 0.6726294754918" />
+    <camera name="cam0" pos="0.13 0.23 0.55" quat="0.1834444024068545 -0.1834444024068545 -0.6930121868703394 0.6726294754918" />
+  </worldbody>
+</mujoco>

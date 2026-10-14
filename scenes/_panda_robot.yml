@@ -1,0 +1,36 @@
+panda_base: { multibody: true, multibody_gravity: false }
+Include: <$RAI_PATH/panda/panda_arm_hand_conv.yml>
+Edit panda_link0(panda_base): {}
+
+## zero position
+Edit panda_joint1: { q: -0.7, sampleSdv: 0.4, mj_actuator_kp: "1000.", mj_actuator_kv: "20.", mj_joint_damping: "40." }
+Edit panda_joint2: { q: -.5, sampleSdv: 0.4, mj_actuator_kp: "1000.", mj_actuator_kv: "20.", mj_joint_damping: "40." }
+Edit panda_joint3: { q: 0., sampleSdv: 0.4, mj_actuator_kp: "750.", mj_actuator_kv: "4.", mj_joint_damping: "40." }
+Edit panda_joint4: { q: -2.5, sampleSdv: 0.4, mj_actuator_kp: "750.", mj_actuator_kv: "4.", mj_joint_damping: "40." }
+Edit panda_joint5: { q: -0., sampleSdv: 0.4, mj_actuator_kp: "300.", mj_actuator_kv: "2.", mj_joint_damping: "2." }
+Edit panda_joint6: { q: 2., sampleSdv: 0.4, limits: [.5, 3.], mj_actuator_kp: "300.", mj_actuator_kv: "2.", mj_joint_damping: "2." }
+Edit panda_joint7: { q: -.5, sampleSdv: 0.4, mj_actuator_kp: "300.", mj_actuator_kv: "2.", mj_joint_damping: "2." }
+Edit panda_finger_joint1: { q: .04, sampleSdv: 0.4, mj_actuator_kp: "500.", mj_actuator_kv: "2.", mj_joint_damping: "10." }
+Edit panda_finger_joint2: { q: .04, sampleSdv: 0.4, mj_actuator_kp: "500.", mj_actuator_kv: "2.", mj_joint_damping: "10." }
+
+## kill rigid hand joints
+Edit panda_joint8: { joint: none }
+Edit panda_hand_joint: { joint: none }
+
+## deactivate the gripper joint by default! control and simulation treats it differently
+
+Edit panda_link0: { contact: -2 }
+Edit panda_joint1: { contact: -2 }
+Edit panda_joint2: { contact: -2 }
+Edit panda_joint3: { contact: -2 }
+Edit panda_joint4: { contact: -2 }
+Edit panda_joint5: { contact: -2 }
+Edit panda_joint6: { contact: -2 }
+Edit panda_joint7: { contact: -2 }
+Edit panda_hand_joint: { contact: -2, mj_geom_friction: "0.5 0.1 0.1" }
+Edit panda_finger_joint1: { contact: -2 }
+Edit panda_rightfinger_0: { contact: -2 }
+
+Edit panda_base: { X: [-.34, .4, .161] }
+Edit panda_finger_joint1: { Q: [.0, .02, .0], joint: none }
+Edit panda_finger_joint2: { Q: [.0, -.02, .0], joint: none }
